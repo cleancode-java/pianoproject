@@ -1,47 +1,92 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Piano Studio</title>
-
+  
   <script src="https://cdn.tailwindcss.com"></script>
-
+  
   <script>
     tailwind.config = {
       darkMode: 'class'
     }
   </script>
-
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-
-  <style>
-    body { font-family: Inter, sans-serif; }
-    .serif { font-family: "Playfair Display", serif; }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 
 <body class="bg-white text-zinc-900 dark:bg-zinc-950 dark:text-white transition-colors duration-500 overflow-x-hidden">
 
-<!-- TOP BAR -->
-<div class="absolute top-0 left-0 w-full flex justify-end p-6 z-20">
-  <button id="themeToggle"
-    class="px-4 py-2 rounded-full border border-zinc-400/40 dark:border-white/20 text-sm backdrop-blur">
-    Toggle Theme
-  </button>
+<!-- HEADER -->
+<header class="absolute top-0 left-0 w-full z-30">
+
+  <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4 text-white">
+
+    <!-- LOGO -->
+    <div class="logo">
+      Personal Website
+    </div>
+
+    <!-- DESKTOP NAV -->
+    <nav class="hidden md:flex gap-6 text-sm text-white/80">
+      <a href="#home" class="hover:text-white">Home</a>
+      <a href="#about" class="hover:text-white">About</a>
+      <a href="#teaching" class="hover:text-white">Teaching</a>
+      <a href="#performances" class="hover:text-white">Performances</a>
+      <a href="#arrangements" class="hover:text-white">Arrangements</a>
+      <a href="#booking" class="hover:text-white">Booking</a>
+      <a href="#contact" class="hover:text-white">Contact</a>
+    </nav>
+
+    <!-- RIGHT CONTROLS -->
+    <div class="flex items-center gap-4">
+
+      <!-- THEME BUTTON -->
+      <button id="themeToggle"
+        class="px-3 py-1 rounded-full border border-white/20 text-sm backdrop-blur">
+        Theme
+      </button>
+
+      <!-- BURGER -->
+      <button id="burgerBtn" class="md:hidden text-2xl text-white">
+        ☰
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+<div id="mobileMenu"
+     class="hidden flex-col gap-2 px-6 pb-6 text-white text-base border-t border-white/10 
+            bg-zinc-950/40 backdrop-blur-xl absolute top-full left-0 w-full shadow-xl transition-all duration-300">
+
+  <a href="#home" class="py-3 border-b border-white/5 hover:text-white/80 transition">Home</a>
+  <a href="#about" class="py-3 border-b border-white/5 hover:text-white/80 transition">About</a>
+  <a href="#teaching" class="py-3 border-b border-white/5 hover:text-white/80 transition">Teaching</a>
+  <a href="#performances" class="py-3 border-b border-white/5 hover:text-white/80 transition">Performances</a>
+  <a href="#arrangements" class="py-3 border-b border-white/5 hover:text-white/80 transition">Arrangements</a>
+  <a href="#booking" class="py-3 border-b border-white/5 hover:text-white/80 transition">Booking</a>
+  <a href="#contact" class="py-3 hover:text-white/80 transition">Contact</a>
+
 </div>
+
+</header>
 
 <!-- HERO -->
 <section class="relative h-screen flex items-center justify-center">
 
   <!-- HERO IMAGE -->
-  <img
-    id="heroImage"
-    src="image/main-photo.jpg"
-    class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-    alt="Concert performance"
-  />
+<img
+  id="heroImage"
+  src="image/main-photo.jpg"
+  class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+  alt="Concert performance"
+/>
 
   <!-- OVERLAYS -->
   <div class="absolute inset-0 bg-black/20 dark:bg-black/5"></div>
@@ -54,8 +99,14 @@
       Concert Pianist · Educator · Arranger
     </p>
 
-    <h1 class="serif text-5xl md:text-7xl font-semibold leading-tight">
-      Inspiring Piano<br/>Performance & Teaching
+    <h1 class="leading-tight">
+      <span class="hero-name" data-text="Yulia Horislavets">
+        Yulia Horislavets
+      </span>
+
+      <span class="serif text-3xl md:text-5xl font-medium text-white/90 mt-2 block">
+        Performance & Teaching
+      </span>
     </h1>
 
     <p class="mt-6 text-white/70 max-w-2xl mx-auto text-lg">
@@ -72,19 +123,31 @@
     </div>
 
     <!-- SECONDARY CTA -->
-    <div class="mt-6 flex flex-col md:flex-row gap-4 justify-center">
+<!-- SECONDARY CTA -->
+<div class="mt-6 flex flex-col md:flex-row gap-4 justify-center">
 
-      <a href="booking.html?type=performance"
-         class="px-6 py-3 rounded-full border border-white/30 hover:bg-white/10 transition">
-        Hire for Performance
-      </a>
+  <!-- PRIMARY SECONDARY CTA -->
+  <a href="booking.html?type=performance"
+     class="px-7 py-3 rounded-full 
+            bg-white/10 backdrop-blur-md 
+            border border-white/30 
+            text-white
+            hover:bg-white/20 hover:border-white/50
+            transition duration-300">
+    Hire for Performance
+  </a>
 
-      <a href="booking.html?type=arrangement"
-         class="px-6 py-3 rounded-full border border-white/30 hover:bg-white/10 transition">
-        Request Arrangement
-      </a>
+  <!-- OUTLINE CTA -->
+  <a href="booking.html?type=arrangement"
+     class="px-7 py-3 rounded-full 
+            border border-white/25 
+            text-white/80
+            hover:text-white hover:border-white/50 hover:bg-white/10
+            transition duration-300">
+    Request Arrangement
+  </a>
 
-    </div>
+</div>
 
   </div>
 </section>
@@ -147,37 +210,22 @@
 
 </section>
 
-<!-- FOOTER -->
-<footer class="border-t border-black/10 dark:border-white/10 py-10 text-center text-sm opacity-60">
-  © Piano Studio. All rights reserved.
+<footer class="border-t border-black/10 dark:border-white/10 py-10 opacity-60 text-sm">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-center">
+    <p>© Piano Studio. All rights reserved.</p>
+    <span class="hidden md:inline opacity-40">|</span>
+    <p>
+      Designed & Built by 
+      <a href="https://vi-node.com" target="_blank" class="underline underline-offset-4 hover:opacity-80 transition font-medium">Vi-Node</a>
+    </p>
+  </div>
 </footer>
 
-<!-- SCRIPT -->
-<script>
-  const btn = document.getElementById("themeToggle");
-  const root = document.documentElement;
-  const img = document.getElementById("heroImage");
+<script src="js/main.js"></script>
 
-  function setTheme(theme) {
-    if (theme === "dark") {
-      root.classList.add("dark");
-      img.src = "image/main-photo2.jpg";
-    } else {
-      root.classList.remove("dark");
-      img.src = "image/photo-light3.jpg";
-    }
 
-    localStorage.setItem("theme", theme);
-  }
-
-  // init
-  setTheme(localStorage.getItem("theme") || "dark");
-
-  btn.addEventListener("click", () => {
-    const newTheme = root.classList.contains("dark") ? "light" : "dark";
-    setTheme(newTheme);
-  });
-</script>
 
 </body>
 </html>
+
+
