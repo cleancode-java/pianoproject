@@ -1,0 +1,86 @@
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.serif {
+  font-family: "Playfair Display", serif;
+}
+
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 16px;         /* Зменшили розмір шрифту з 20px до 16px */
+  letter-spacing: -0.02em; /* Зробили текст кучнішим (від'ємне значення зближує літери) */
+  color: white;
+}
+
+
+/* Оформлення імені власника сайту */
+/* Базовий стиль для мобільних пристроїв */
+.hero-name {
+  font-family: "Great Vibes", "Playfair Display", cursive;
+  font-size: 46px; /* Зменшений розмір для смартфонів */
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: rgba(255, 255, 255, 0.95);
+
+  position: relative;
+  display: inline-block;
+  font-style: italic;
+}
+
+/* Для екранів від планшетів і більше (від 768px) */
+@media (min-width: 768px) {
+  .hero-name {
+    font-size: 84px;
+    line-height: 1.1;
+  }
+}
+
+/* soft luxury glow */
+.hero-name::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.28);
+  filter: blur(10px);
+  opacity: 0.6;
+  transform: translateY(1px);
+  animation: nameGlow 6s ease-in-out infinite;
+}
+
+@keyframes nameGlow {
+  0%   { opacity: 0.15; transform: translateX(-1px); }
+  50%  { opacity: 0.45; transform: translateX(1px); }
+  100% { opacity: 0.15; transform: translateX(0px); }
+}
+
+
+
+/* БАЗОВИЙ СТИЛЬ: для мобільних екранів (смартфонів) */
+html.dark #heroImage {
+  /* Фізично піднімаємо картинку вгору на 80 пікселів (приблизно ті самі 3 см) */
+  transform: translateY(-190px) !important;
+  
+  /* Збільшуємо висоту картинки, щоб знизу екрана не з'явилася порожня чорна чи біла смуга */
+  height: calc(100% + 190px) !important;
+  
+  /* Залишаємо базове центрування */
+  object-position: 50% 50% !important; 
+}
+
+/* ДЕСКТОПНИЙ СТИЛЬ: для екранів від планшетів і більше (від 768px) */
+@media (min-width: 768px) {
+  html.dark #heroImage {
+    /* Скасовуємо мобільне фізичне зміщення */
+    transform: translateY(0) !important;
+    height: 100% !important;
+    
+    /* Повертаємо твоє робоче значення для десктопа */
+    object-position: 50% 90% !important;
+  }
+}
